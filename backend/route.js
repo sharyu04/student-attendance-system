@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post('/registerStudent', async (req, res) => {
     try {
-        let student = await Student.find({rollNo: req.body.rollNo});
+        let student = await Student.findOne({rollNo: req.body.rollNo});
         if(student){
             return res.status(400).json({error: "Roll no already registered"});
         }
